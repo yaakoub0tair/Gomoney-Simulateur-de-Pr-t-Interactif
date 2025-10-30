@@ -30,3 +30,51 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
   const total = mensualite * mois;
   const interets = total - montant;
   const pourcentage = (mensualite / salaire) * 100;
+  
+  // Affichage
+  document.getElementById('emptyState').style.display = "none";
+  document.getElementById('results').style.display = "block";
+  
+  const alerte = document.querySelector('#results > div:first-child');
+  
+  // Reconstruire complètement l'alerte
+  if (pourcentage > 40) {
+    alerte.className = "flex gap-3 items-start bg-red-50 border-2 border-red-500 rounded-xl p-5 mb-5";
+    alerte.innerHTML = `
+      <div class="w-8 h-8 bg-red-500 text-white flex items-center justify-center rounded-full font-bold">⚠</div>
+      <div>
+        <div class="font-bold mb-1">Prêt non accessible</div>
+        <p class="text-sm text-red-800">Le prêt dépasse 40% de votre salaire.</p>
+      </div>
+    `;
+  } else {
+    alerte.className = "flex gap-3 items-start bg-emerald-50 border-2 border-emerald-500 rounded-xl p-5 mb-5";
+    alerte.innerHTML = `
+      <div class="w-8 h-8 bg-emerald-500 text-white flex items-center justify-center rounded-full font-bold">✓</div>
+      <div>
+        <div class="font-bold mb-1">Prêt accessible</div>
+        <p class="text-sm text-emerald-800">Votre mensualité est dans les limites recommandées.</p>
+      </div>
+    `;
+  }
+  
+  document.getElementById('loanTypeName').textContent = typeLabels[type];
+  document.getElementById('monthlyAmount').textContent = Math.round(mensualite).toLocaleString('fr-FR') + " MAD";
+  document.getElementById('salaryPercent').textContent = pourcentage.toFixed(1) + "%";
+  document.getElementById('progressBar').style.width = Math.min(pourcentage, 100) + "%";
+  document.getElementById('requestedAmount').textContent = Math.round(montant).toLocaleString('fr-FR') + " MAD";
+  document.getElementById('interestRateDisplay').textContent = tauxAnnuel + "%";
+  document.getElementById('durationDisplay').textContent = duree + " ans (" + mois + " mois)";
+  document.getElementById('totalInterestDisplay').textContent = Math.round(interets).toLocaleString('fr-FR') + " MAD";
+  document.getElementById('totalAmountDisplay').textContent = Math.round(total).toLocaleString('fr-FR') + " MAD";
+  
+  const principalPct = (montant / total) * 100;
+  const interetsPct = (interets / total) * 100;
+  
+  document.getElementById('principalBar').style.width = principalPct + "%";
+  document.getElementById('interestBar').style.width = interetsPct + "%";
+  document.getElementById('principalBar').textContent = principalPct > 20 ? "Principal" : "";
+  document.getElementById('interestBar').textContent = interetsPct > 20 ? "Intérêts" : "";
+  document.getElementById('principalPercent').textContent = "Principal: " + principalPct.toFixed(1) + "%";
+  document.getElementById('interestPercent').textContent = "Intérêts: " + interetsPct.toFixed(1) + "%";
+});
