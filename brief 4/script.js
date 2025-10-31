@@ -76,7 +76,5 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
   document.getElementById('requestedAmount').textContent = montant.toFixed(2).toLocaleString('fr-FR') + " MAD";
   document.getElementById('totalInterestDisplay').textContent = interets.toFixed(2).toLocaleString('fr-FR') + " MAD";
   document.getElementById('totalAmountDisplay').textContent = total.toFixed(2).toLocaleString('fr-FR') + " MAD";
-  document.getElementById('principalPercent').textContent = "Principal: " + principalPct.toFixed(2) + "%";
-  document.getElementById('interestPercent').textContent = "Intérêts: " + interetsPct.toFixed(2) + "%";
-  
+
 });
