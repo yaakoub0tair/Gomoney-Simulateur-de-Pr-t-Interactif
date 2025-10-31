@@ -12,7 +12,7 @@
     <!-- HEADER -->
     <header class="bg-white shadow-md p-5">
       <div class="max-w-6xl mx-auto flex items-center gap-4">
-        <div class="w-12 h-12 bg-gradient-to-r from-emerald-500 via-teal-500 to-blue-600rounded-xl flex items-center justify-center text-2xl">🧮</div>
+        <div class="w-12 h-12  flex items-center justify-center text-2xl">🧮</div>
         <div>
           <h1 class="text-xl font-bold">Gomoney</h1>
           <p class="text-gray-500 text-sm ">Simulateur de Prêt Intelligent</p>
@@ -20,15 +20,31 @@
       </div>
     </header>
     <!-- Hero section -->
-    <section class="bg-gradient-to-r from-emerald-500 via-teal-500 to-blue-600 text-white py-16 px-5 text-left">
-      <div class="max-w-6xl mx-auto">
-        <h1 class="text-4xl md:text-5xl font-bold mb-5">Planifiez votre avenir financier</h1>
-        <p class="text-lg leading-relaxed">
-          Simulez votre prêt en quelques secondes et prenez des décisions éclairées.
-          Calculez vos mensualités, visualisez les intérêts et comparez les options.
-        </p>
+    <section class="bg-gradient-to-r from-emerald-500 via-teal-500 to-blue-600 text-white py-16 px-5">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+        <!-- Texte -->
+        <div class="max-w-3xl md:max-w-none">
+          <h1 class="text-4xl md:text-5xl font-bold mb-5">
+            Planifiez votre avenir financier
+          </h1>
+          <p class="text-lg leading-relaxed">
+            Simulez votre prêt en quelques secondes et prenez des décisions éclairées.
+            Calculez vos mensualités, visualisez les intérêts et comparez les options.
+          </p>
+        </div>
+        
+    
+        <!-- Image -->
+        <div class="flex justify-center md:justify-end">
+          <img 
+            src="/brief 4/image-9 1.png" 
+            alt="Planification financière" 
+            class="w-full max-w-md rounded-2xl shadow-lg"
+          />
+        </div>
       </div>
     </section>
+    
 
      <!-- TABS -->
      <div class="max-w-6xl mx-auto mt-8 px-5 flex flex-wrap gap-3 bg-gray-400 w-fit rounded-2xl p-3">
@@ -164,17 +180,7 @@
                   <span id="totalAmountDisplay" class="text-3xl font-bold text-blue-600">0 MAD</span>
                 </div>
   
-                <div>
-                  <p class="text-sm text-gray-500 mb-2">Répartition du montant total</p>
-                  <div class="flex h-10 rounded-lg overflow-hidden mb-2">
-                    <div id="principalBar" class="bg-emerald-500 flex items-center justify-center text-white text-sm font-bold" style="width:0%">Principal</div>
-                    <div id="interestBar" class="bg-orange-500 flex items-center justify-center text-white text-sm font-bold" style="width:0%">Intérêts</div>
-                  </div>
-                  <div class="flex justify-between text-xs text-gray-500">
-                    <span id="principalPercent">Principal: 0%</span>
-                    <span id="interestPercent">Intérêts: 0%</span>
-                  </div>
-                </div>
+              
               </div>
             </div>
           </div>
