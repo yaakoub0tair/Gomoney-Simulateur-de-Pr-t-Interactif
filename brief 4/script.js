@@ -71,10 +71,12 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
   const principalPct = (montant / total) * 100;
   const interetsPct = (interets / total) * 100;
   
-  document.getElementById('principalBar').style.width = principalPct + "%";
-  document.getElementById('interestBar').style.width = interetsPct + "%";
-  document.getElementById('principalBar').textContent = principalPct > 20 ? "Principal" : "";
-  document.getElementById('interestBar').textContent = interetsPct > 20 ? "Intérêts" : "";
-  document.getElementById('principalPercent').textContent = "Principal: " + principalPct.toFixed(1) + "%";
-  document.getElementById('interestPercent').textContent = "Intérêts: " + interetsPct.toFixed(1) + "%";
+  document.getElementById('monthlyAmount').textContent = mensualite.toFixed(2).toLocaleString('fr-FR') + " MAD";
+  document.getElementById('salaryPercent').textContent = pourcentage.toFixed(2) + "%";
+  document.getElementById('requestedAmount').textContent = montant.toFixed(2).toLocaleString('fr-FR') + " MAD";
+  document.getElementById('totalInterestDisplay').textContent = interets.toFixed(2).toLocaleString('fr-FR') + " MAD";
+  document.getElementById('totalAmountDisplay').textContent = total.toFixed(2).toLocaleString('fr-FR') + " MAD";
+  document.getElementById('principalPercent').textContent = "Principal: " + principalPct.toFixed(2) + "%";
+  document.getElementById('interestPercent').textContent = "Intérêts: " + interetsPct.toFixed(2) + "%";
+  
 });
